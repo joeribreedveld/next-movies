@@ -17,7 +17,7 @@ export default async function Home() {
 
   return (
     <main className="container mx-auto px-4 py-16">
-      <ul className="grid grid-cols-2 gap-x-4 gap-y-8 md:gap-x-6 md:gap-y-9 lg:grid-cols-3 lg:gap-y-12 xl:grid-cols-4">
+      <ul className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 md:gap-x-6 md:gap-y-9 lg:grid-cols-3 lg:gap-y-12 xl:grid-cols-4">
         {movies.map((movie: Movie, index: number) => (
           <div key={index}>
             <Image
