@@ -1,8 +1,7 @@
 import { getMovies } from "@/app/actions";
 import { Movie } from "@/lib/types";
-import { PlusIcon, Popcorn, StarIcon } from "lucide-react";
+import { StarIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 export default async function Home() {
   const movies = await getMovies();
