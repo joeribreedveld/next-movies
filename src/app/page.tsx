@@ -21,6 +21,7 @@ export default async function Home() {
         {movies.map((movie: Movie, index: number) => (
           <div key={index}>
             <Image
+              unoptimized
               src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
               width={256}
               height={256}
