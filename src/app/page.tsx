@@ -7,6 +7,14 @@ import Link from "next/link";
 export default async function Home() {
   const movies = await getMovies();
 
+  if (!movies || movies.length === 0) {
+    return (
+      <main className="container mx-auto px-4 py-16">
+        <p>No movies available at the moment.</p>
+      </main>
+    );
+  }
+
   return (
     <main className="container mx-auto px-4 py-16">
       <ul className="grid grid-cols-2 gap-x-4 gap-y-8 md:gap-x-6 md:gap-y-9 lg:grid-cols-3 lg:gap-y-12 xl:grid-cols-4">
