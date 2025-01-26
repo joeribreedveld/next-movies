@@ -1,7 +1,8 @@
 import { getMovies } from "@/app/actions";
 import { Movie } from "@/lib/types";
-import { StarIcon } from "lucide-react";
+import { PlusIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Home() {
   const movies = await getMovies();
@@ -9,7 +10,7 @@ export default async function Home() {
   if (!movies || movies.length === 0) {
     return (
       <main className="container mx-auto px-4 py-16">
-        <p>No movies available at the moment.</p>
+        <p className="text-sm">No movies available at the moment.</p>
       </main>
     );
   }
@@ -22,19 +23,16 @@ export default async function Home() {
             key={index}
             className="overflow-hidden rounded-md border border-[#2D2D2D]"
           >
-            <div className="relative">
-              <Image
-                unoptimized
-                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                width={256}
-                height={256}
-                alt="test"
-                className="aspect-video h-auto w-full"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
-            </div>
+            <Image
+              unoptimized
+              src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+              width={256}
+              height={256}
+              alt="test"
+              className="aspect-video h-auto w-full"
+            />
 
-            <div className="p-6 pt-0">
+            <div className="p-6">
               <div className="flex justify-between gap-4">
                 <h2 className="line-clamp-2 text-sm font-medium">
                   {movie.title}
@@ -55,20 +53,20 @@ export default async function Home() {
                 {movie.overview}
               </p>
 
-              {/* <div className="mt-4 flex gap-3">
+              <div className="mt-4 flex gap-3">
                 <button className="flex h-8 w-8 items-center justify-center rounded-md border border-[#2D2D2D] bg-[#0A0A0A] text-[#EDEDED] shadow-sm transition hover:border-[#333333] hover:bg-[#1F1F1F]">
                   <PlusIcon className="h-4 w-4" />
                 </button>
 
                 <Link
-                  href={movie.imdb}
+                  href="#"
                   target="_blank"
                   rel="noreferrer noopener"
                   className="flex h-8 w-8 items-center justify-center rounded-md border border-[#2D2D2D] bg-[#0A0A0A] text-[#EDEDED] shadow-sm transition hover:border-[#333333] hover:bg-[#1F1F1F]"
                 >
-                  <Popcorn className="h-4 w-4" />
+                  <StarIcon className="h-4 w-4" />
                 </Link>
-              </div> */}
+              </div>
             </div>
           </div>
         ))}
