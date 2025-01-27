@@ -18,22 +18,27 @@ export default async function Home() {
   return (
     <main className="container mx-auto min-h-full px-4 py-12 sm:py-16">
       <h1 className="text-xl font-medium leading-7">Popular movies</h1>
-      <ul className="mt-8 grid grid-cols-2 gap-4 sm:mt-10 sm:gap-5 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4 2xl:grid-cols-5">
+      <ul className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-5 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4 2xl:grid-cols-5">
         {movies.map((movie: Movie, index: number) => (
           <div
             key={index}
             className="overflow-hidden rounded-md border border-[#2D2D2D]"
           >
-            <div className="aspect-[2/3] h-auto w-full">
-              <Image
-                unoptimized
-                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                width={256}
-                height={256}
-                alt={`${movie.title} backdrop`}
-                className="h-full w-full bg-[#1A1A1A] object-cover"
-              />
-            </div>
+            <Link
+              href={`/movie/${movie.id}`}
+              className="transition hover:opacity-90"
+            >
+              <div className="aspect-[2/3] h-auto w-full">
+                <Image
+                  unoptimized
+                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                  width={256}
+                  height={256}
+                  alt={`${movie.title} backdrop`}
+                  className="h-full w-full bg-[#1A1A1A] object-cover"
+                />
+              </div>
+            </Link>
 
             <div className="h-full p-4 sm:p-6">
               <div className="flex h-fit items-center gap-2">
@@ -46,9 +51,14 @@ export default async function Home() {
                 </p>
               </div>
 
-              <h2 className="mt-3 line-clamp-2 text-sm font-medium leading-6">
-                {movie.title}
-              </h2>
+              <Link
+                href={`/movie/${movie.id}`}
+                className="underline-offset-2 hover:underline"
+              >
+                <h2 className="mt-3 line-clamp-2 text-sm font-medium leading-6">
+                  {movie.title}
+                </h2>
+              </Link>
 
               <p className="mt-2 hidden text-sm text-[#A1A1A1] sm:line-clamp-2">
                 {movie.overview}

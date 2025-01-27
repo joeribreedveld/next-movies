@@ -12,8 +12,8 @@ export default async function Page() {
         <div className="mt-8 flex flex-col gap-8 sm:mt-10">
           <div className="flex justify-between rounded-md border border-[#2D2D2D] bg-[#0A0A0A] p-6">
             <div>
-              <h2 className="font-semibold leading-6">Avatar (GitHub)</h2>
-              <p className="mt-1.5 text-sm text-[#A1A1A1]">
+              <h2 className="text-sm font-medium leading-6">Avatar (GitHub)</h2>
+              <p className="mt-1 text-sm text-[#A1A1A1]">
                 We current do not support avatar change.
               </p>
             </div>
@@ -30,8 +30,8 @@ export default async function Page() {
           <div className="flex flex-col justify-between rounded-md border border-[#2D2D2D] bg-[#0A0A0A]">
             <div className="p-6">
               <div>
-                <h2 className="font-semibold leading-6">Display name</h2>
-                <p className="mt-1.5 text-sm text-[#A1A1A1]">
+                <h2 className="text-sm font-medium leading-6">Display name</h2>
+                <p className="mt-1 text-sm text-[#A1A1A1]">
                   Please enter your full name, or a display name you are
                   comfortable with.
                 </p>
@@ -52,8 +52,8 @@ export default async function Page() {
           <div className="flex flex-col justify-between rounded-md border border-[#2D2D2D] bg-[#0A0A0A]">
             <div className="p-6">
               <div>
-                <h2 className="font-semibold leading-6">Username</h2>
-                <p className="mt-1.5 text-sm text-[#A1A1A1]">
+                <h2 className="text-sm font-medium leading-6">Username</h2>
+                <p className="mt-1 text-sm text-[#A1A1A1]">
                   This is your URL namespace within Next Movies.
                 </p>
               </div>

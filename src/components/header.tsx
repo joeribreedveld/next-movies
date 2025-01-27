@@ -10,7 +10,7 @@ export default async function Header() {
       <div className="container mx-auto flex items-center justify-between px-4">
         <div>
           <Link href="/">
-            <h2 className="font-semibold leading-6">Next Movies</h2>
+            <h2 className="font-medium leading-6">Next Movies</h2>
           </Link>
         </div>
         <div className="flex items-center gap-3">
@@ -22,7 +22,7 @@ export default async function Header() {
               >
                 Bookmarks
               </Link>
-              <Link href="/profile">
+              <Link href="/profile" className="transition hover:opacity-90">
                 <Image
                   className="rounded-full border border-[#2E2E2E] bg-[#1A1A1A]"
                   src={session.user?.image || ""}
