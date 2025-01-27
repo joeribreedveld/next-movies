@@ -1,4 +1,6 @@
 import "@/app/globals.css";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
@@ -22,7 +24,9 @@ export default function RootLayout({
       <body
         className={cn(geistSans.className, "dark h-full bg-black antialiased")}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -9,15 +9,15 @@ export default async function Home() {
 
   if (!movies || movies.length === 0) {
     return (
-      <main className="container mx-auto px-4 py-16">
+      <main className="container mx-auto min-h-[calc(100vh-64px)] px-4 py-12 sm:py-16">
         <p className="text-sm">No movies available at the moment.</p>
       </main>
     );
   }
 
   return (
-    <main className="container mx-auto px-4 py-16 lg:py-24">
-      <ul className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 md:gap-x-6 md:gap-y-9 lg:grid-cols-3 lg:gap-y-12 xl:grid-cols-4">
+    <main className="container mx-auto min-h-[calc(100vh-64px)] px-4 py-12 sm:py-16">
+      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {movies.map((movie: Movie, index: number) => (
           <div
             key={index}
@@ -28,8 +28,8 @@ export default async function Home() {
               src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
               width={256}
               height={256}
-              alt="test"
-              className="aspect-video h-auto w-full"
+              alt={`${movie.title} backdrop`}
+              className="aspect-video h-auto w-full bg-[#1A1A1A]"
             />
 
             <div className="p-6">
