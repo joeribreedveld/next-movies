@@ -7,6 +7,8 @@ import Link from "next/link";
 export default async function Home() {
   const movies = await getMovies();
 
+  console.log(movies[0]);
+
   if (!movies || movies.length === 0) {
     return (
       <main className="container mx-auto min-h-[calc(100vh-64px)] px-4 py-12 sm:py-16">
@@ -34,7 +36,7 @@ export default async function Home() {
 
             <div className="p-6">
               <div className="flex justify-between gap-4">
-                <h2 className="line-clamp-2 text-sm font-medium">
+                <h2 className="line-clamp-2 text-sm font-medium leading-6">
                   {movie.title}
                 </h2>
 
@@ -53,7 +55,7 @@ export default async function Home() {
                 {movie.overview}
               </p>
 
-              <div className="mt-4 flex gap-3">
+              <div className="mt-5 flex gap-3">
                 <button className="flex h-8 w-8 items-center justify-center rounded-md border border-[#2D2D2D] bg-[#0A0A0A] text-[#EDEDED] shadow-sm transition hover:border-[#333333] hover:bg-[#1F1F1F]">
                   <BookmarkIcon className="h-4 w-4" />
                 </button>
