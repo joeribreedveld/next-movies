@@ -17,8 +17,8 @@ export default async function Page() {
 
   return (
     <main className="container mx-auto min-h-full px-4 py-12 sm:py-16">
-      <div className="mx-auto max-w-xl">
-        <h1 className="text-lg font-semibold leading-7">Bookmarks</h1>
+      <div className="mx-auto max-w-2xl">
+        <h1 className="text-xl font-semibold leading-7">Bookmarks</h1>
         <ul className="mt-8 flex flex-col gap-4 sm:mt-10 sm:gap-5 lg:gap-6">
           {movies.map((movie: Movie, index: number) => (
             <div
