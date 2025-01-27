@@ -6,7 +6,7 @@ export default async function Header() {
   const session = await auth();
 
   return (
-    <header className="sticky top-0 flex h-16 items-center justify-between border-b border-[#232222] bg-black">
+    <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-[#232222] bg-black">
       <div className="container mx-auto flex items-center justify-between px-4">
         <div>
           <Link href="/">

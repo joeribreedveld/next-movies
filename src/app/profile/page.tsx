@@ -7,9 +7,9 @@ export default async function Page() {
   return (
     <main className="container mx-auto min-h-[calc(100vh-144px)] px-4 py-12 sm:py-16">
       <div className="mx-auto max-w-2xl">
-        <h1 className="text-xl font-medium leading-7">Profile</h1>
+        <h1 className="text-lg font-medium leading-7">Profile</h1>
 
-        <div className="mt-8 flex flex-col gap-8 sm:mt-10">
+        <div className="mt-8 flex flex-col gap-8">
           <div className="flex justify-between rounded-md border border-[#2D2D2D] bg-[#0A0A0A] p-6">
             <div>
               <h2 className="text-sm font-medium">Avatar (GitHub)</h2>
