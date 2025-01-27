@@ -56,7 +56,7 @@ export default async function Page() {
                   href={`/movie/${movie.id}`}
                   className="underline-offset-2 hover:underline"
                 >
-                  <h2 className="mt-3 line-clamp-2 text-sm font-medium leading-6">
+                  <h2 className="mt-3 line-clamp-2 text-sm font-medium">
                     {movie.title}
                   </h2>
                 </Link>

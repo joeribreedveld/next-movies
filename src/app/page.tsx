@@ -18,7 +18,7 @@ export default async function Home() {
   return (
     <main className="container mx-auto min-h-full px-4 py-12 sm:py-16">
       <h1 className="text-xl font-medium leading-7">Popular movies</h1>
-      <ul className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-5 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4 2xl:grid-cols-5">
+      <ul className="mt-8 grid grid-cols-2 gap-4 sm:mt-10 sm:gap-5 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4 2xl:grid-cols-5">
         {movies.map((movie: Movie, index: number) => (
           <div
             key={index}
@@ -55,7 +55,7 @@ export default async function Home() {
                 href={`/movie/${movie.id}`}
                 className="underline-offset-2 hover:underline"
               >
-                <h2 className="mt-3 line-clamp-2 text-sm font-medium leading-6">
+                <h2 className="mt-3 line-clamp-2 text-sm font-medium">
                   {movie.title}
                 </h2>
               </Link>
