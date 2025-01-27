@@ -19,13 +19,13 @@ export default async function Page() {
     <main className="container mx-auto min-h-full px-4 py-12 sm:py-16">
       <div className="mx-auto max-w-xl">
         <h1 className="text-lg font-semibold leading-7">Bookmarks</h1>
-        <ul className="mt-8 grid grid-cols-2 gap-4 sm:mt-10 sm:grid-cols-1 sm:gap-5 lg:gap-6">
+        <ul className="mt-8 flex flex-col gap-4 sm:mt-10 sm:gap-5 lg:gap-6">
           {movies.map((movie: Movie, index: number) => (
             <div
               key={index}
-              className="flex flex-col overflow-hidden rounded-md border border-[#2D2D2D] sm:flex-row"
+              className="flex overflow-hidden rounded-md border border-[#2D2D2D]"
             >
-              <div className="aspect-[2/3] h-auto sm:w-[37%]">
+              <div className="aspect-[2/3] h-40 w-auto sm:h-56">
                 <Image
                   unoptimized
                   src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}

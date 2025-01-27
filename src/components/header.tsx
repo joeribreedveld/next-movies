@@ -10,7 +10,7 @@ export default async function Header() {
       <div className="container mx-auto flex items-center justify-between px-4">
         <div>
           <Link href="/">
-            <h2 className="font-semibold">Next Movies</h2>
+            <h2 className="font-semibold leading-6">Next Movies</h2>
           </Link>
         </div>
         <div className="flex items-center gap-3">
