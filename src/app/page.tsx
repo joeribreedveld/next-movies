@@ -11,15 +11,15 @@ export default async function Home() {
 
   if (!movies || movies.length === 0) {
     return (
-      <main className="container mx-auto min-h-[calc(100vh-64px)] px-4 py-12 sm:py-16">
+      <main className="container mx-auto min-h-full px-4 py-12 sm:py-16">
         <p className="text-sm">No movies available at the moment.</p>
       </main>
     );
   }
 
   return (
-    <main className="container mx-auto min-h-[calc(100vh-64px)] px-4 py-12 sm:py-16">
-      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <main className="container mx-auto min-h-full px-4 py-12 sm:py-16">
+      <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4">
         {movies.map((movie: Movie, index: number) => (
           <div
             key={index}
