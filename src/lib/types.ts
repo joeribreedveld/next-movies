@@ -6,4 +6,5 @@ export type Movie = {
   title: string;
   imdb: string;
   vote_average: number;
+  poster_path: string;
 };

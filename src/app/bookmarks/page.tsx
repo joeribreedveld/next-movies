@@ -1,7 +1,77 @@
+import { getMovies } from "@/app/actions";
+import { Movie } from "@/lib/types";
+import { BookmarkIcon, StarIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
 export default async function Page() {
+  const movies = await getMovies();
+
+  if (!movies || movies.length === 0) {
+    return (
+      <main className="container mx-auto min-h-full px-4 py-12 sm:py-16">
+        <p className="text-sm">No movies available at the moment.</p>
+      </main>
+    );
+  }
+
   return (
-    <main className="container mx-auto min-h-[calc(100vh-144px)] px-4 py-12 sm:py-16">
-      <p className="text-sm">Bookmarks page</p>
+    <main className="container mx-auto min-h-full px-4 py-12 sm:py-16">
+      <div className="mx-auto max-w-xl">
+        <h1 className="text-lg font-semibold leading-7">Bookmarks</h1>
+        <ul className="mt-8 grid grid-cols-2 gap-4 sm:mt-10 sm:grid-cols-1 sm:gap-5 lg:gap-6">
+          {movies.map((movie: Movie, index: number) => (
+            <div
+              key={index}
+              className="flex flex-col overflow-hidden rounded-md border border-[#2D2D2D] sm:flex-row"
+            >
+              <div className="aspect-[2/3] h-auto sm:w-[37%]">
+                <Image
+                  unoptimized
+                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                  width={256}
+                  height={256}
+                  alt={`${movie.title} backdrop`}
+                  className="h-full w-full bg-[#1A1A1A] object-cover"
+                />
+              </div>
+
+              <div className="h-full w-full p-4 sm:p-6">
+                <div className="flex h-fit items-center gap-2">
+                  <StarIcon className="h-4 w-4 fill-[#FFAE00] text-[#FFAE00]" />
+
+                  <p className="text-sm font-medium">
+                    {Math.round(movie.vote_average * 10) / 10}
+
+                    <span className="font-normal text-[#A1A1A1]">/10</span>
+                  </p>
+                </div>
+
+                <h2 className="mt-3 line-clamp-2 text-sm font-medium leading-6">
+                  {movie.title}
+                </h2>
+
+                <p className="mt-2 hidden text-sm text-[#A1A1A1] sm:line-clamp-2">
+                  {movie.overview}
+                </p>
+
+                <div className="mt-4 flex gap-3">
+                  <button className="flex h-8 w-8 items-center justify-center rounded-md border border-[#2D2D2D] bg-[#0A0A0A] text-[#EDEDED] shadow-sm transition hover:border-[#333333] hover:bg-[#1F1F1F]">
+                    <BookmarkIcon className="h-4 w-4 fill-[#EDEDED]" />
+                  </button>
+
+                  <Link
+                    href="#"
+                    className="flex h-8 w-8 items-center justify-center rounded-md border border-[#2D2D2D] bg-[#0A0A0A] text-[#EDEDED] shadow-sm transition hover:border-[#333333] hover:bg-[#1F1F1F]"
+                  >
+                    <StarIcon className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </ul>
+      </div>
     </main>
   );
 }
