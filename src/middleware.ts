@@ -10,12 +10,12 @@ export default auth((req) => {
   if (
     !isAuth &&
     (req.nextUrl.pathname === "/bookmarks" ||
-      req.nextUrl.pathname === "/profile")
+      req.nextUrl.pathname === "/account/settings")
   ) {
     return Response.redirect(new URL("/login", req.nextUrl.origin));
   }
 });
 
 export const config = {
-  matcher: ["/login", "/profile", "/bookmarks"],
+  matcher: ["/login", "/account/settings", "/bookmarks"],
 };

@@ -9,14 +9,14 @@ export default async function Page() {
 
   if (!movies || movies.length === 0) {
     return (
-      <main className="container mx-auto min-h-full px-4 py-12 sm:py-16">
+      <main className="container mx-auto min-h-[calc(100vh-144px)] px-4 py-12 sm:py-16">
         <p className="text-sm">No movies available at the moment.</p>
       </main>
     );
   }
 
   return (
-    <main className="container mx-auto min-h-full px-4 py-12 sm:py-16">
+    <main className="container mx-auto min-h-[calc(100vh-144px)] px-4 py-12 sm:py-16">
       <div className="mx-auto max-w-2xl">
         <h1 className="text-lg font-medium leading-7">Bookmarks</h1>
         <ul className="mt-8 flex flex-col gap-4 sm:gap-5 lg:gap-6">

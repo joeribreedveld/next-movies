@@ -9,14 +9,14 @@ export default async function Home() {
 
   if (!movies || movies.length === 0) {
     return (
-      <main className="container mx-auto min-h-full px-4 py-12 sm:py-16">
+      <main className="container mx-auto min-h-[calc(100vh-144px)] px-4 py-12 sm:py-16">
         <p className="text-sm">No movies available at the moment.</p>
       </main>
     );
   }
 
   return (
-    <main className="container mx-auto min-h-full px-4 py-12 sm:py-16">
+    <main className="container mx-auto min-h-[calc(100vh-144px)] px-4 py-12 sm:py-16">
       <h1 className="text-lg font-medium leading-7">Popular movies</h1>
       <ul className="mt-8 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4 2xl:grid-cols-5">
         {movies.map((movie: Movie, index: number) => (

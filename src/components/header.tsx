@@ -1,5 +1,5 @@
+import { AvatarDropdown } from "./avatar-dropdown";
 import { auth } from "@/auth";
-import Image from "next/image";
 import Link from "next/link";
 
 export default async function Header() {
@@ -22,15 +22,8 @@ export default async function Header() {
               >
                 Bookmarks
               </Link>
-              <Link href="/profile" className="transition hover:opacity-90">
-                <Image
-                  className="rounded-full border border-[#2E2E2E] bg-[#1A1A1A]"
-                  src={session.user?.image || ""}
-                  alt={`${session.user?.name} avatar`}
-                  width={32}
-                  height={32}
-                />
-              </Link>
+
+              <AvatarDropdown session={session} />
             </>
           ) : (
             <Link
