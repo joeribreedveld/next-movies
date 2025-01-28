@@ -42,7 +42,7 @@ export async function getMovie(id: number) {
 export async function getBookmarks(userId: string) {
   try {
     const response = await fetch(
-      `http://localhost:3000/api/bookmarks/${userId}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/bookmarks/${userId}`,
       {
         method: "GET",
       },
