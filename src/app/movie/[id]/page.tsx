@@ -1,8 +1,8 @@
-import { getMovie } from "@/app/actions";
-import { Movie } from "@/lib/types";
-import { BookmarkIcon, StarIcon } from "lucide-react";
+import { getBookmarks, getMovie } from "@/app/actions";
+import MovieActions from "@/components/movie-actions";
+import { Bookmark, Movie } from "@/lib/types";
+import { StarIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 export default async function Page({
   params,
@@ -11,6 +11,7 @@ export default async function Page({
 }) {
   const id = (await params).id;
   const movie: Movie = await getMovie(id);
+  const bookmarks: Bookmark[] = await getBookmarks();
 
   console.log(movie);
 
@@ -45,18 +46,7 @@ export default async function Page({
           {movie.overview}
         </p>
 
-        <div className="mt-8 flex gap-3">
-          <button className="flex h-8 w-8 items-center justify-center rounded-md border border-[#2D2D2D] bg-[#0A0A0A] text-[#EDEDED] shadow-sm transition hover:border-[#333333] hover:bg-[#1F1F1F]">
-            <BookmarkIcon className="h-4 w-4" />
-          </button>
-
-          <Link
-            href="#"
-            className="flex h-8 w-8 items-center justify-center rounded-md border border-[#2D2D2D] bg-[#0A0A0A] text-[#EDEDED] shadow-sm transition hover:border-[#333333] hover:bg-[#1F1F1F]"
-          >
-            <StarIcon className="h-4 w-4" />
-          </Link>
-        </div>
+        <MovieActions movie={movie} bookmarks={bookmarks} />
       </div>
     </main>
   );

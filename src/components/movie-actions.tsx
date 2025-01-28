@@ -7,9 +7,11 @@ import Link from "next/link";
 export default function MovieActions({
   bookmarks,
   movie,
+  alwaysMarked,
 }: {
   bookmarks: Bookmark[];
   movie: Movie;
+  alwaysMarked?: boolean;
 }) {
   return (
     <div className="mt-4 flex gap-3">
@@ -22,9 +24,10 @@ export default function MovieActions({
         <button className="flex h-8 w-8 items-center justify-center rounded-md border border-[#2D2D2D] bg-[#0A0A0A] text-[#EDEDED] shadow-sm transition hover:border-[#333333] hover:bg-[#1F1F1F]">
           <BookmarkIcon
             className={cn("h-4 w-4", {
-              "fill-[#EDEDED]": bookmarks.some(
-                (bookmark) => parseInt(bookmark.movieId) === movie.id,
-              ),
+              "fill-[#EDEDED]":
+                bookmarks.some(
+                  (bookmark) => parseInt(bookmark.movieId) === movie.id,
+                ) || alwaysMarked,
             })}
           />
         </button>
