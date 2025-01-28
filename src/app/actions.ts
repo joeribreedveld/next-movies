@@ -1,80 +1,40 @@
-import { Movie } from "@/lib/types";
-
-export async function getTest() {
-  try {
-    const response = await fetch(
-      "https://api.themoviedb.org/3/discover/movie",
-      {
-        headers: {
-          accept: "application/json",
-          Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
-        },
-      },
-    );
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch movies: ${response.statusText}`);
-    }
-
-    const result = await response.json();
-
-    // Ensure results exist and are an array
-    return result.results || [];
-  } catch (error) {
-    console.error("Error in getTest:", error);
-    return []; // Return an empty array in case of an error
-  }
-}
+const API_BASE_URL = "https://api.themoviedb.org/3";
+const HEADERS = {
+  accept: "application/json",
+  Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
+};
 
 export async function getMovies() {
   try {
-    const movies = await getTest();
+    const response = await fetch(`${API_BASE_URL}/discover/movie`, {
+      headers: HEADERS,
+    });
 
-    if (movies.length === 0) {
-      console.warn("No movies found.");
-      return [];
-    }
+    if (!response.ok)
+      throw new Error(`Failed to fetch movies: ${response.statusText}`);
 
-    const result = await Promise.all(
-      movies.map(async (movie: Movie) => {
-        try {
-          const response = await fetch(
-            `https://api.themoviedb.org/3/movie/${movie.id}`,
-            {
-              headers: {
-                accept: "application/json",
-                Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
-              },
-            },
-          );
+    const { results } = await response.json();
+    if (!results || !Array.isArray(results)) return [];
 
-          if (!response.ok) {
-            throw new Error(
-              `Failed to fetch movie details: ${response.statusText}`,
-            );
-          }
-
-          const result = await response.json();
-
-          return {
-            ...movie,
-            imdb: result.imdb_id
-              ? `https://www.imdb.com/title/${result.imdb_id}`
-              : null,
-          };
-        } catch (error) {
-          console.error(
-            `Error fetching details for movie ID ${movie.id}:`,
-            error,
-          );
-          return { ...movie, imdb: null }; // Return movie with null IMDb link on error
-        }
-      }),
-    );
-
-    return result;
+    return results;
   } catch (error) {
     console.error("Error in getMovies:", error);
-    return []; // Return an empty array in case of an error
+    return [];
+  }
+}
+
+export async function getMovie(id: number) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/movie/${id}`, {
+      headers: HEADERS,
+    });
+
+    if (!response.ok)
+      throw new Error(`Failed to fetch movie details: ${response.statusText}`);
+
+    return await response.json();
+  } catch (error) {
+    console.error(`Error fetching movie details for ID ${id}:`, error);
+    return null;
   }
 }
