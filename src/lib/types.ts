@@ -8,3 +8,7 @@ export type Movie = {
   vote_average: number;
   poster_path: string;
 };
+
+export type Bookmark = {
+  movieId: string;
+};

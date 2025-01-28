@@ -7,7 +7,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LogOutIcon, SettingsIcon } from "lucide-react";
 import { Session } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,10 +35,7 @@ export function AvatarDropdown({ session }: { session: Session }) {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <Link href="/account/settings">
-          <DropdownMenuItem>
-            Account Settings
-            <SettingsIcon className="ml-auto h-4 w-4" />
-          </DropdownMenuItem>
+          <DropdownMenuItem>Account Settings</DropdownMenuItem>
         </Link>
 
         <form
@@ -49,10 +45,7 @@ export function AvatarDropdown({ session }: { session: Session }) {
           }}
         >
           <button type="submit" className="w-full">
-            <DropdownMenuItem>
-              Sign out
-              <LogOutIcon className="ml-auto h-4 w-4" />
-            </DropdownMenuItem>
+            <DropdownMenuItem>Sign out</DropdownMenuItem>
           </button>
         </form>
       </DropdownMenuContent>

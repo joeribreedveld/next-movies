@@ -1,13 +1,11 @@
-import { getBookmarks } from "@/app/actions";
-import { auth } from "@/auth";
+import { getBookmarkMovies } from "@/app/actions";
 import { Movie } from "@/lib/types";
 import { BookmarkIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Page() {
-  const session = await auth();
-  const bookmarks = await getBookmarks(session?.user?.id || "1");
+  const bookmarks = await getBookmarkMovies();
 
   if (!bookmarks || bookmarks.length === 0) {
     return (
