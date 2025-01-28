@@ -17,7 +17,7 @@ export default async function Page({
   return (
     <main className="container mx-auto min-h-[calc(100vh-144px)] px-4 py-12 sm:py-16">
       <div className="mx-auto max-w-2xl">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
           <h1 className="text-lg font-medium">{movie.title}</h1>
 
           <div className="flex h-fit items-center gap-2">
