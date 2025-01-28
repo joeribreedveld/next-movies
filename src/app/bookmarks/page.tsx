@@ -1,16 +1,20 @@
-import { getMovies } from "@/app/actions";
+import { getBookmarks } from "@/app/actions";
+import { auth } from "@/auth";
 import { Movie } from "@/lib/types";
 import { BookmarkIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Page() {
-  const movies = await getMovies();
+  const session = await auth();
+  const bookmarks = await getBookmarks(session?.user?.id || "1");
 
-  if (!movies || movies.length === 0) {
+  if (!bookmarks || bookmarks.length === 0) {
     return (
       <main className="container mx-auto min-h-[calc(100vh-144px)] px-4 py-12 sm:py-16">
-        <p className="text-sm">No movies available at the moment.</p>
+        <div className="mx-auto max-w-2xl">
+          <h1 className="text-sm">No bookmarks found.</h1>
+        </div>
       </main>
     );
   }
@@ -20,7 +24,7 @@ export default async function Page() {
       <div className="mx-auto max-w-2xl">
         <h1 className="text-lg font-medium leading-7">Bookmarks</h1>
         <ul className="mt-8 flex flex-col gap-4 sm:gap-5 lg:gap-6">
-          {movies.map((movie: Movie, index: number) => (
+          {bookmarks.map((movie: Movie, index: number) => (
             <div
               key={index}
               className="flex overflow-hidden rounded-md border border-[#2D2D2D]"

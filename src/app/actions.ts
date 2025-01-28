@@ -38,3 +38,34 @@ export async function getMovie(id: number) {
     return null;
   }
 }
+
+export async function getBookmarks(userId: string) {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/bookmarks/${userId}`,
+      {
+        method: "GET",
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch bookmarks: ${response.statusText}`);
+    }
+
+    const bookmarks = await response.json();
+
+    if (!Array.isArray(bookmarks)) return [];
+
+    const moviePromises = bookmarks.map((bookmark) =>
+      getMovie(bookmark.movieId),
+    );
+
+    const movies = await Promise.all(moviePromises);
+
+    return movies.filter((movie) => movie !== null);
+  } catch (error) {
+    console.error(`Error fetching bookmarks for user ID ${userId}:`, error);
+
+    return [];
+  }
+}
