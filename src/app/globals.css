@@ -69,4 +69,7 @@ body {
   body {
     @apply bg-background text-[#EDEDED];
   }
+  header {
+    position: -webkit-sticky;
+  }
 }
