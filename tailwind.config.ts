@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      position: {
+        sticky: ["-webkit-sticky", "sticky"],
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
