@@ -14,7 +14,7 @@ export default function Movie({
   priority: boolean;
 }) {
   return (
-    <div className="h-fit overflow-hidden rounded-md border border-[#2D2D2D]">
+    <div className="h-full overflow-hidden rounded-md border border-[#2D2D2D]">
       <Link href={`/movie/${movie.id}`} className="transition hover:opacity-90">
         <div className="aspect-[2/3] h-auto w-full">
           <Image
@@ -29,7 +29,7 @@ export default function Movie({
         </div>
       </Link>
 
-      <div className="h-full p-4 sm:p-6">
+      <div className="h-fit p-4 sm:p-6">
         <div className="flex h-fit items-center gap-2">
           <StarIcon className="h-4 w-4 fill-[#FFAE00] text-[#FFAE00]" />
 
