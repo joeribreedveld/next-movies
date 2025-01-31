@@ -37,9 +37,9 @@ export default async function Home() {
               <div className="aspect-[2/3] h-auto w-full">
                 <Image
                   unoptimized
-                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                  width={256}
-                  height={256}
+                  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                  width={500}
+                  height={500}
                   alt={`${movie.title} backdrop`}
                   className="h-full w-full bg-[#1A1A1A] object-cover"
                 />

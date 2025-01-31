@@ -34,9 +34,9 @@ export default async function Page({
 
         <div className="mt-8 overflow-hidden rounded-md border border-[#2D2D2D] shadow-sm">
           <Image
-            width={256}
-            height={256}
-            src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+            width={1280}
+            height={1280}
+            src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
             alt={`${movie.title} backdrop`}
             className="aspect-video h-auto w-full object-cover"
           />
