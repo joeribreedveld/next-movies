@@ -3,8 +3,8 @@
 import { toggleBookmark } from "@/app/actions";
 import { TBookmark, TMovie } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { BookmarkIcon, LoaderIcon, StarIcon } from "lucide-react";
-import Link from "next/link";
+import { BookmarkIcon, LoaderIcon } from "lucide-react";
+// import Link from "next/link";
 import { useActionState } from "react";
 
 export default function MovieActions({
@@ -42,12 +42,12 @@ export default function MovieActions({
         </button>
       </form>
 
-      <Link
+      {/* <Link
         href="#"
         className="flex h-8 w-8 items-center justify-center rounded-md border border-[#2D2D2D] bg-[#0A0A0A] text-[#EDEDED] shadow-sm transition hover:border-[#333333] hover:bg-[#1F1F1F]"
       >
         <StarIcon className="h-4 w-4" />
-      </Link>
+      </Link> */}
     </div>
   );
 }
