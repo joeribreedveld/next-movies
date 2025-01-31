@@ -1,5 +1,5 @@
 import { getBookmarks, getMovie } from "@/app/actions";
-import MovieActions from "@/components/movie-actions";
+import MovieActions from "@/components/movie/movie-actions";
 import { TBookmark, TMovie } from "@/lib/types";
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
@@ -37,6 +37,7 @@ export default async function MovieView({
           src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
           alt={`${movie.title} backdrop`}
           className="aspect-video h-auto w-full object-cover"
+          priority
         />
       </div>
 

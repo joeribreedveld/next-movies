@@ -1,4 +1,4 @@
-import { AvatarDropdown } from "./avatar-dropdown";
+import { AvatarDropdown } from "./account/avatar-dropdown";
 import { auth } from "@/auth";
 import Link from "next/link";
 

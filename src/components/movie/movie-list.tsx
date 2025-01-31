@@ -1,5 +1,5 @@
 import { getBookmarks, getMovies } from "@/app/actions";
-import Movie from "@/components/movie";
+import Movie from "@/components/movie/movie";
 import { TBookmark, TMovie } from "@/lib/types";
 
 export default async function MovieList() {

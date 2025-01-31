@@ -1,5 +1,5 @@
-import MovieViewFallback from "@/components/bookmark-list-fallback copy";
-import MovieView from "@/components/movie-view";
+import MovieView from "@/components/movie/movie-view";
+import MovieViewFallback from "@/components/movie/movie-view-fallback";
 import { Suspense } from "react";
 
 export default async function Page({

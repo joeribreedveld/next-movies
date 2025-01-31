@@ -1,5 +1,5 @@
-import MovieList from "@/components/movie-list";
-import MovieListFallback from "@/components/movie-list-fallback";
+import MovieList from "@/components/movie/movie-list";
+import MovieListFallback from "@/components/movie/movie-list-fallback";
 import { Suspense } from "react";
 
 export default async function Home() {

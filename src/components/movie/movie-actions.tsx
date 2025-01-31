@@ -1,7 +1,7 @@
 "use client";
 
 import { toggleBookmark } from "@/app/actions";
-import { Bookmark, Movie } from "@/lib/types";
+import { TBookmark, TMovie } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { BookmarkIcon, LoaderIcon, StarIcon } from "lucide-react";
 import Link from "next/link";
@@ -12,8 +12,8 @@ export default function MovieActions({
   movie,
   alwaysMarked,
 }: {
-  bookmarks: Bookmark[];
-  movie: Movie;
+  bookmarks: TBookmark[];
+  movie: TMovie;
   alwaysMarked?: boolean;
 }) {
   const [, formAction, isPending] = useActionState(toggleBookmark, null);

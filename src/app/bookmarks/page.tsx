@@ -1,5 +1,5 @@
-import BookmarkList from "@/components/bookmark-list";
-import BookmarkListFallback from "@/components/bookmark-list-fallback";
+import BookmarkList from "@/components/bookmark/bookmark-list";
+import BookmarkListFallback from "@/components/bookmark/bookmark-list-fallback";
 import { Suspense } from "react";
 
 export default async function Page() {

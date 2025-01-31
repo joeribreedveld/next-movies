@@ -1,4 +1,4 @@
-import MovieActions from "@/components/movie-actions";
+import MovieActions from "@/components/movie/movie-actions";
 import { TBookmark, TMovie } from "@/lib/types";
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
