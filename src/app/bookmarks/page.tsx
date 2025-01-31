@@ -12,7 +12,11 @@ export default async function Page() {
     return (
       <main className="container mx-auto min-h-[calc(100vh-144px)] px-4 py-12 sm:py-16">
         <div className="mx-auto max-w-2xl">
-          <h1 className="text-sm">No bookmarks found.</h1>
+          <h1 className="text-lg font-medium leading-7">Bookmarks</h1>
+
+          <div className="mt-8 flex h-24 w-full items-center justify-center rounded-md border border-[#2D2D2D] bg-[#0A0A0A] text-sm text-[#A1A1A1]">
+            No bookmarks found
+          </div>
         </div>
       </main>
     );

@@ -12,7 +12,11 @@ export default async function Home() {
   if (!movies || movies.length === 0) {
     return (
       <main className="container mx-auto min-h-[calc(100vh-144px)] px-4 py-12 sm:py-16">
-        <p className="text-sm">No movies available at the moment.</p>
+        <h1 className="text-lg font-medium leading-7">Popular movies</h1>
+
+        <div className="mt-8 flex h-24 w-full max-w-2xl items-center justify-center rounded-md border border-[#2D2D2D] bg-[#0A0A0A] text-sm text-[#A1A1A1]">
+          No movies found
+        </div>
       </main>
     );
   }
