@@ -34,9 +34,9 @@ export function AvatarDropdown({ session }: { session: Session }) {
           <p className="font-normal text-[#A1A1A1]">{session.user?.email}</p>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <Link href="/account/settings">
+        {/* <Link href="/account/settings">
           <DropdownMenuItem>Account Settings</DropdownMenuItem>
-        </Link>
+        </Link> */}
 
         <form
           action={async () => {
