@@ -6,7 +6,10 @@ export default async function Header() {
   const session = await auth();
 
   return (
-    <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-[#232222] bg-black">
+    <header
+      style={{ position: "-webkit-sticky" }}
+      className="sticky top-0 z-10 flex h-16 w-full items-center justify-between border-b border-[#232222] bg-black"
+    >
       <div className="container mx-auto flex items-center justify-between px-4">
         <div>
           <Link href="/">
