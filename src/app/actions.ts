@@ -1,6 +1,9 @@
+"use server";
+
 import { auth } from "@/auth";
 import { Pool } from "@neondatabase/serverless";
 import { revalidateTag } from "next/cache";
+import { redirect } from "next/navigation";
 
 const TMDB_API_BASE_URL = "https://api.themoviedb.org/3";
 const HEADERS = {
@@ -87,6 +90,11 @@ export async function getBookmarkMovies() {
 
 export async function getBookmarks() {
   const session = await auth();
+
+  if (!session) {
+    return [];
+  }
+
   const userId = session?.user?.id;
 
   try {
@@ -113,9 +121,18 @@ export async function getBookmarks() {
   }
 }
 
-export async function toggleBookmark(movieId: number) {
+export async function toggleBookmark(prevState: unknown, formData: FormData) {
   const session = await auth();
+
+  if (!session) {
+    redirect("/login");
+
+    return { status: "cancelled" };
+  }
+
   const userId = session?.user?.id;
+
+  const movieId = formData.get("movieId");
 
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
