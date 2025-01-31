@@ -12,3 +12,10 @@ export type TMovie = {
 export type TBookmark = {
   movieId: string;
 };
+
+export type TMovieResult = {
+  results: TMovie[];
+  page: number;
+  total_pages: number;
+  total_results: number;
+};

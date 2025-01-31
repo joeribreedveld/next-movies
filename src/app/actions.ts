@@ -21,14 +21,17 @@ export async function getMovies() {
       throw new Error(`Failed to fetch movies: ${response.statusText}`);
     }
 
-    const { results } = await response.json();
+    const result = await response.json();
 
-    if (!results || !Array.isArray(results)) return [];
+    if (!result || !Array.isArray(result.results)) return [];
 
-    return results;
+    return result;
   } catch (error) {
     console.error("Error in getMovies:", error);
-    return [];
+
+    return {
+      results: [],
+    };
   }
 }
 
