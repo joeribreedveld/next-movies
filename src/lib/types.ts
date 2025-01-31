@@ -1,4 +1,4 @@
-export type Movie = {
+export type TMovie = {
   backdrop_path: string;
   id: number;
   original_title: string;
@@ -9,6 +9,6 @@ export type Movie = {
   poster_path: string;
 };
 
-export type Bookmark = {
+export type TBookmark = {
   movieId: string;
 };
