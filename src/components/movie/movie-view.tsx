@@ -41,7 +41,9 @@ export default async function MovieView({
         />
       </div>
 
-      <p className="mt-8 text-sm leading-6 text-[#A1A1A1]">{movie.overview}</p>
+      <p className="mt-8 pb-2 text-sm leading-6 text-[#A1A1A1]">
+        {movie.overview}
+      </p>
 
       <MovieActions movie={movie} bookmarks={bookmarks} />
     </div>
